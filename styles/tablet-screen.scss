@@ -1,0 +1,500 @@
+@import "colors";
+@import "spacings";
+@import "typography";
+@import "base";
+@import "mixins";
+
+@media screen and (min-width: 768px) and (max-width: 1200px) {
+  .container {
+    padding: $sectionSpacing $largeSpacing 0;
+  }
+
+  header {
+    padding: 0 $largeSpacing;
+    // position: fixed;
+
+    .loginRegisterForm {
+      left: 25%;
+      // transform: translateX(-50%);
+    }
+
+    .bar {
+      width: $marginSpacing;
+    }
+
+    .productsInCart {
+      left: 25%;
+    }
+
+    .logo {
+      width: 100%;
+      height: auto;
+      text-align: center;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding-left: $largeSpacing;
+
+      a {
+        width: 250px;
+        .logo-img {
+          width: 100%;
+        }
+      }
+    }
+
+    .btnLogin-popup {
+      margin: $mediumSpacing $marginSpacing;
+    }
+
+    .hello {
+      position: absolute;
+      bottom: 35px;
+      right: 120px;
+      color: $white;
+      font-size: 12px;
+      max-width: 40px;
+      text-align: center;
+      margin-right: $smallSpacing;
+    }
+  }
+
+  // First Page Hero
+  .hero {
+    background-image: url("../images/tablets-img/bg-image.png");
+    .slogan-section {
+      height: 400px;
+      width: 700px;
+      h1 {
+        font-size: 90px;
+      }
+      h3 {
+        font-size: $mediumSpacing;
+      }
+      p {
+        width: 500px;
+        font-size: $marginSpacing + $smallSpacing;
+        line-height: 1.5;
+      }
+    }
+  }
+  .product-GM-lens {
+    background-size: 300px 300px;
+    width: calc(100% - 2 * $largeSpacing);
+
+    .extraBigCircle {
+      position: absolute;
+      top: -25%;
+      width: 750px;
+      height: 750px;
+      border: 1px solid white;
+      border-radius: 50%;
+      opacity: 0.3;
+      overflow: hidden;
+    }
+
+    .bigCircle {
+      top: -15%;
+      width: 550px;
+      height: 550px;
+    }
+
+    .smallCircle {
+      top: -8%;
+      width: 450px;
+      height: 450px;
+    }
+
+    .container {
+      width: 100%;
+
+      h2 {
+        font-size: $largeSpacing + $smallSpacing;
+        width: 80%;
+      }
+
+      p {
+        display: flex;
+        flex-wrap: wrap;
+        width: 60%;
+      }
+    }
+  }
+  .product-SSM-lens {
+    // background-image: url(/images/tablets-img/product-SSM-lens.png);
+    // background-position: left;
+    // background-size: contain;
+    height: 300px;
+    width: calc(100% - 2 * $largeSpacing);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      width: 50%;
+    }
+
+    .container {
+      height: 100%;
+      width: 50%;
+      padding: 0;
+      display: flex;
+      justify-content: space-evenly;
+      position: static;
+
+      h2 {
+        font-size: $largeSpacing;
+      }
+    }
+  }
+  .product-flash {
+    display: flex;
+    flex-direction: row;
+    width: calc(100% - 2 * $largeSpacing);
+    height: 300px;
+    column-gap: $marginSpacing;
+
+    .container {
+      height: 100%;
+      width: 50%;
+
+      h2 {
+        font-size: $largeSpacing;
+      }
+    }
+
+    .flash-img {
+      background-image: url(../images/tablets-img/product-flash.jpg);
+      height: 100%;
+      width: 50%;
+    }
+  }
+
+  // Bodies,Lenses,Flash Category
+  .category {
+    height: $xxxlSpacing;
+    width: 100%;
+    h2 {
+      font-size: $mediumSpacing;
+    }
+  }
+
+  .card {
+    // margin-top: $sectionSpacing;
+    height: 700px;
+    width: 100%;
+    margin-bottom: $sectionSpacing;
+    margin-top: 0;
+
+    .productImg {
+      width: 100%;
+      height: 400px;
+
+      img {
+        width: 400px;
+      }
+    }
+
+    .info {
+      height: 250px;
+      justify-content: space-evenly;
+
+      h2 {
+        font-size: $largeSpacing;
+      }
+    }
+  }
+
+  // Product
+
+  .container {
+    padding-top: 0;
+  }
+
+  .product {
+    display: flex;
+    flex-direction: row;
+    column-gap: $xlSpacing;
+    height: 500px;
+    width: 100%;
+
+    .product-img {
+      width: 100%;
+      height: 100%;
+      img {
+        width: 200;
+      }
+    }
+
+    .info {
+      height: 100%;
+      justify-content: space-evenly;
+      padding: $baseSpacing 0;
+
+      h2 {
+        font-size: $largeSpacing;
+      }
+
+      h3 {
+        margin-top: 0;
+      }
+
+      .addProductToCart {
+        justify-content: flex-start;
+      }
+    }
+  }
+
+  .product-images {
+    display: grid;
+    grid-column: 1 / 3;
+    grid-row: 1 / 3;
+    row-gap: 0;
+    grid-gap: $marginSpacing;
+
+    .img1 {
+      height: 100%;
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    .img2 {
+      height: 100%;
+      grid-column: 1 / 2;
+      grid-row: 2 / 3;
+    }
+    .img3 {
+      height: 100%;
+      grid-column: 2 / 3;
+      grid-row: 1 / 3;
+    }
+  }
+  .also {
+    width: 100%;
+
+    h2 {
+      font-size: $largeSpacing;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      column-gap: $baseSpacing;
+
+      height: 500px;
+      width: 100%;
+      // column-gap: $baseSpacing;
+
+      .alsoProduct {
+        height: 480px;
+        // width: 100%;
+
+        h2 {
+          font-size: $fontSpacing;
+        }
+        .prod1-img {
+          height: 300px;
+          width: 100%;
+          .product1-img {
+            width: 100%;
+          }
+        }
+        .prod2-img {
+          height: 300px;
+          width: 100%;
+
+          .product2-img {
+            width: 100%;
+          }
+        }
+        .prod3-img {
+          height: 300px;
+          width: 100%;
+
+          .product3-img {
+            width: 100%;
+          }
+        }
+
+        .see-product {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  // Products
+  .product-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: $mediumSpacing;
+
+    .card {
+      height: 700px;
+      max-height: 900px;
+      // min-width: 200px;
+      padding: $smallSpacing;
+      position: relative;
+      text-align: center;
+      margin: 0;
+
+      .info {
+        height: 400px;
+
+        p {
+          overflow-y: scroll;
+
+          &::-webkit-scrollbar {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+
+  // Product Category and About
+  .products-categ {
+    width: 100%;
+
+    .container {
+      display: flex;
+      flex-direction: row;
+      column-gap: $baseSpacing;
+      align-items: flex-end;
+      justify-content: center;
+      width: 100%;
+      padding: $xxlSpacing $largeSpacing 0;
+
+      .cameraBodies,
+      .cameraLenses,
+      .accessories {
+        .product-img {
+          width: 130px;
+        }
+        z-index: 1;
+      }
+    }
+  }
+  .about-alphacamera {
+    width: calc(100% - 2 * $largeSpacing);
+
+    .about-img {
+      background-image: url(../images/tablets-img/about-alpha1.jpg);
+      height: 50%;
+      width: 100%;
+    }
+    .container {
+      height: 380px;
+      width: 100%;
+      margin: 0;
+      padding: 0 $xlSpacing;
+
+      h3 {
+        font-size: $mediumSpacing + $smallSpacing;
+      }
+    }
+  }
+
+  // Checkout
+
+  .checkOut {
+    h2 {
+      font-size: $largeSpacing;
+    }
+
+    .billing-details {
+      display: grid;
+      column-gap: $marginSpacing;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      h4 {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+    .shipping-info {
+      display: grid;
+      column-gap: $marginSpacing;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+      h4 {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+    .payment-details {
+      height: 450px;
+      display: grid;
+      column-gap: $marginSpacing;
+
+      grid-template-columns: repeat(1, 1fr);
+      grid-template-rows: repeat(3, 1fr);
+
+      .payment-method {
+        grid-area: 2 /3 /3/1;
+      }
+      h4 {
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+        display: flex;
+        align-items: flex-end;
+      }
+    }
+  }
+
+  footer {
+    height: 500px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      width: calc(100% - 2 * $largeSpacing);
+      padding: $xlSpacing 0;
+
+      .logo {
+        width: 100%;
+        height: auto;
+        text-align: center;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+
+        a {
+          width: 250px;
+          .logo-img {
+            width: 100%;
+          }
+        }
+      }
+
+      nav {
+        .nav-menu {
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+        }
+      }
+
+      p {
+        text-align: left;
+        .reserved {
+          display: inline-block;
+        }
+      }
+
+      .social {
+        position: absolute;
+        right: 0;
+        bottom: $xlSpacing;
+      }
+    }
+  }
+}

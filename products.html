@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Products</title>
+  <link rel="stylesheet" href="styles/products.css">
+  <link rel="stylesheet" href="styles/tablet-screen.css">
+  <link rel="stylesheet" href="styles/desktop-screen.css">
+
+  <!-- <link rel="stylesheet" href="styles/tablet-screen.css" media="screen and (min-width: 767px)">
+  <link rel="stylesheet" href="styles/desktop-screen.css" media="screen and (min-width: 990px)">
+  <link rel="stylesheet" href="styles/extra-large-screen.css" media="screen and (min-width: 1400px)"> -->
+  <script src="https://kit.fontawesome.com/4ce8e841c8.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <my-header></my-header>
+
+  <section class="products">
+
+    <div class="container main-products">
+
+
+      <!-- <div class="filters">
+          Filters
+          <div>
+            <label for="search">Search</label>
+            <input type="text" id="search" name="search" />
+            <button id="searchButton">Search</button>
+          </div>
+        </div> -->
+
+      <div class="filter-section">
+        <h3>Products filter</h3>
+        <div class="filter">
+          <div class="categoryFilter">
+            <div class="category-btn">
+              <span class="btn-text">Category</span>
+              <span class="arrow-down">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <ul class="category-list">
+              <li class="item select-all">
+                <input type="checkbox" id="selectAll">
+                <label for="selectAll">Select All</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="body">
+                <label for="cameraBodies">Camera Bodies</label>
+                <span class="item-text"></span>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="lens">
+                <label for="cameraLenses">Camera Lenses</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="flash">
+                <label for="cameraFlashes">Camera Flashes</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="priceFilter">
+            <div class="category-btn">
+              <span class="btn-text">Prices</span>
+              <span class="arrow-down">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <ul class="category-list">
+              <li class="item">
+                <input type="checkbox" id="tillTo-499">
+                <label for="tillTo-499">$0 - $499</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="tillTo-999">
+                <label for="tillTo-999">$500 - $999</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="tillTo-1999">
+                <label for="tillTo-1999">$1000 - $1999</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="tillTo-2999">
+                <label for="tillTo-2999">$2000 - $2999</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="tillTo-3999">
+                <label for="tillTo-3999">$3000 - $3999</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="tillTo-4999">
+                <label for="tillTo-4999">$4000 - $4999</label>
+              </li>
+            </ul>
+          </div>
+
+          <div class="categoryFilter">
+            <div class="category-btn">
+              <span class="btn-text">Color</span>
+              <span class="arrow-down">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <ul class="category-list">
+              <li class="item select-all">
+                <input type="checkbox" id="aa">
+                <label for="selectAll">Select All</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="bb">
+                <label for="cameraBodies">Camera Bodies</label>
+                <span class="item-text"></span>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="cc">
+                <label for="cameraLenses">Camera Lenses</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="dd">
+                <label for="cameraFlashes">Camera Flashes</label>
+              </li>
+            </ul>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="sortAndList">
+        <div class="sortBy">
+          <span>Sort by</span>
+          <select name="" id="select">
+            <option value="Relevance">Relevance</option>
+            <option value="lowToHigh">Low to High</option>
+            <option value="highToLow">High to Low</option>
+          </select>
+        </div>
+
+        <div class="product-list">
+          <!-- <div class="card body product-under">
+            <div class="productImg"><img src="/images/alpha9.png" alt="Alpha9 Image"></div>
+            <div class="info">
+              <h2>Sony a9 II</h2>
+              <p class="price">$ 4999 </p>
+            </div><button class="addToCart" id="item-0">Add to cart</button>
+          </div> -->
+        </div>
+      </div>
+
+  </section>
+
+  <my-footer></my-footer>
+
+  <script src="header-footer.js"></script>
+  <script src="script.js"></script>
+  <script src="products.js"></script>
+  <script src="shoppingCartPrototype.js"></script>
+  <script src="login_Register.js"></script>
+
+
+
+</body>
+
+</html>

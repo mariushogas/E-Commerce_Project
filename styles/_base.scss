@@ -1,0 +1,36 @@
+@import "spacings";
+@import "colors";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  padding: 0 $containerSpacing;
+}
+
+a {
+  text-decoration: none;
+  color: $white;
+}
+
+button:active {
+  transform: scale(0.97);
+}

@@ -1,0 +1,13 @@
+$smallSpacing: 8px; //8px
+$baseSpacing: 16px; //16px
+$mediumSpacing: $baseSpacing * 2; //32px
+$largeSpacing: $baseSpacing * 3; //48px
+$xlSpacing: $baseSpacing * 4; //64px
+$xxlSpacing: $baseSpacing * 8; //128px
+$xxxlSpacing: 200px;
+
+$marginSpacing: 20px;
+$fontSpacing: 30px;
+$containerSpacing: 20px;
+$sectionSpacing: 100px;
+$tabletSpacing: $mediumSpacing + $smallSpacing;

@@ -1,0 +1,768 @@
+@import "colors";
+@import "spacings";
+@import "typography";
+@import "base";
+@import "mixins";
+
+header {
+  background-color: $black;
+  border-bottom: 2px solid rgba(131, 131, 131, 0.2);
+  border-width: 2px 20px;
+  width: 100%;
+  height: $sectionSpacing;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 $containerSpacing;
+  margin: 0;
+  z-index: 100;
+  position: relative;
+
+  .loginRegisterForm {
+    position: absolute;
+    top: 102%;
+    height: 500px;
+    width: 400px;
+    max-width: 400px;
+    background: transparent;
+    border-radius: $marginSpacing;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition: height 0.2s ease;
+    transform: scale(0);
+    transition: transform 0.5s ease, height 0.2s ease;
+    z-index: 5;
+
+    .form-box {
+      // padding: 35px;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+
+      form {
+        width: calc(100% - $xlSpacing);
+        height: 340px;
+        position: absolute;
+        // bottom: 10px;
+      }
+
+      h2 {
+        color: $alpha;
+        text-align: center;
+        font-size: $mediumSpacing;
+        font-weight: 700;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      .active-error {
+        color: $white;
+        font-size: $marginSpacing;
+        width: 100%;
+        position: absolute;
+        top: 100px;
+        left: 50%;
+        transform: translate(-50%);
+      }
+
+      &.login {
+        transition: transform 0.2s ease;
+        transform: translateX(0);
+      }
+
+      &.register {
+        position: absolute;
+        transform: translateX(400px);
+        transition: none;
+      }
+    }
+
+    .input-box {
+      position: relative;
+      height: 40px;
+      width: 100%;
+      border-bottom: 2px solid $darkGrey;
+      margin: 50px 0;
+
+      label {
+        position: absolute;
+        left: 5px;
+        top: 50%;
+        transform: translateY(-50%);
+        pointer-events: none;
+        color: $alpha;
+        font-size: $baseSpacing;
+        font-weight: 500;
+        transition: 0.5s;
+      }
+
+      input {
+        background: transparent;
+        width: 100%;
+        height: 100%;
+        border: none;
+        outline: none;
+        font-size: $baseSpacing;
+        font-weight: 600;
+        color: $alpha;
+        padding: 0 35px 0 5px;
+      }
+
+      .icon {
+        position: absolute;
+        right: $smallSpacing;
+        font-size: $marginSpacing;
+        color: $alpha;
+        line-height: 40px;
+      }
+
+      .eyeSlash {
+        position: absolute;
+        right: 35px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .fa-eye {
+        color: green;
+        font-size: 21px;
+      }
+
+      &.success {
+        .icon {
+          color: green;
+        }
+      }
+      &.error {
+        color: red;
+        border-bottom: 2px solid red;
+        text-align: left;
+        // margin-top: $smallSpacing;
+
+        .icon {
+          color: red;
+        }
+      }
+
+      input:focus ~ label,
+      input:valid ~ label {
+        top: -5px;
+      }
+    }
+
+    .remember-forgot {
+      font-size: $baseSpacing;
+      font-weight: 500;
+      color: $alpha;
+      margin: -15px 0 15px;
+      display: flex;
+      justify-content: space-between;
+
+      label > input {
+        margin-right: 5px;
+        accent-color: $alpha;
+      }
+
+      a {
+        color: $alpha;
+
+        &:hover {
+          text-decoration: underline;
+          cursor: pointer;
+        }
+      }
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      gap: $marginSpacing;
+    }
+    .btn {
+      background: $alpha;
+      width: 50%;
+      height: 45px;
+      border: none;
+      outline: none;
+      border-radius: $smallSpacing;
+      font-size: $baseSpacing;
+      font-weight: 500;
+      letter-spacing: 2px;
+
+      color: $white;
+      cursor: pointer;
+    }
+
+    .login-register {
+      text-align: center;
+      color: $alpha;
+      font-size: $baseSpacing;
+      font-weight: 500;
+      margin: 25px 0 10px;
+    }
+
+    p > a {
+      font-weight: 600;
+      color: $alpha;
+      margin-left: 10px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .icon-close {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 45px;
+      height: 45px;
+      background: $alpha;
+      color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: $marginSpacing;
+      z-index: 1;
+      border-bottom-left-radius: $marginSpacing;
+      cursor: pointer;
+    }
+
+    &.active {
+      height: 550px;
+
+      .form-box.login {
+        transition: none;
+        transform: translateX(-400px);
+      }
+      .form-box.register {
+        transition: transform 0.2s ease;
+        transform: translateX(0);
+      }
+    }
+
+    &.active-popup {
+      transform: scale(1);
+    }
+  }
+
+  .bar {
+    display: block;
+    width: $baseSpacing;
+    height: 3px;
+    margin: 5px auto;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    background-color: $white;
+  }
+
+  .hamburger {
+    display: block;
+
+    &:hover {
+      cursor: pointer;
+      .bar {
+        background-color: $alpha;
+      }
+    }
+
+    &.active .bar:nth-child(1) {
+      transform: translateY($smallSpacing) rotate(45deg);
+      background-color: $white;
+    }
+    &.active .bar:nth-child(2) {
+      opacity: 0;
+      transition: 1.5s ease-in-out;
+      transform: translateX(20px);
+      background-color: $alpha;
+    }
+    &.active .bar:nth-child(3) {
+      transform: translateY(-$smallSpacing) rotate(-45deg);
+      background-color: $white;
+    }
+  }
+
+  .nav-menu {
+    position: absolute;
+    left: -100%;
+    top: $sectionSpacing;
+    gap: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: $black;
+    width: 100%;
+    height: calc(100vh - $sectionSpacing);
+    text-align: center;
+    transition: 0.5s;
+    z-index: 10;
+  }
+  .nav-link {
+    transition: 0.5s ease;
+    letter-spacing: 0.5px;
+    position: relative;
+    padding: 0 10px;
+    color: $grey;
+    padding: 0;
+
+    &::after {
+      content: " ";
+      background-color: $alpha;
+      position: absolute;
+      height: 3px;
+      width: 100%;
+      bottom: -5px;
+      left: 0;
+      transition: 0.3s;
+      transform: scale(0, 1);
+    }
+
+    &:hover {
+      cursor: pointer;
+      color: $white;
+
+      &::after {
+        // width: 100%;
+        transform: scale(1, 1);
+      }
+    }
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .logo {
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      width: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .logo-img {
+        width: 100%;
+      }
+    }
+  }
+
+  .hello {
+    position: absolute;
+    bottom: 0;
+    right: 10px;
+    color: $white;
+
+    font-size: 12px;
+    // max-width: 40px;
+    text-align: center;
+  }
+
+  .btnLogin-popup {
+    background: transparent;
+    border: none;
+    color: $white;
+    font-size: $baseSpacing;
+    margin: $mediumSpacing $smallSpacing;
+
+    &:hover {
+      color: $alpha;
+      cursor: pointer;
+      transition: 0.5s ease;
+    }
+  }
+
+  .cart {
+    background-color: transparent;
+    border: none;
+    color: $white;
+    padding: 0;
+    position: relative;
+
+    &:hover {
+      color: $alpha;
+      cursor: pointer;
+      transition: 0.5s ease;
+    }
+
+    .quantity {
+      background-color: $alpha;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $white;
+      position: absolute;
+      top: 12px;
+      left: 40%;
+      padding: 8px 5px;
+      font-size: $smallSpacing;
+    }
+  }
+
+  .productsInCart {
+    position: fixed;
+    top: $sectionSpacing;
+    height: 540px;
+    width: 90%;
+    max-width: 400px;
+    background: transparent;
+    border-radius: $marginSpacing;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(50px);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+    transition: height 0.2s ease;
+    transform: scale(0);
+    transition: transform 0.5s ease, height 0.2s ease;
+    z-index: 15;
+
+    .top-cart {
+      display: flex;
+      background: transparent;
+      width: 100%;
+      height: 20%;
+      position: relative;
+      padding: $baseSpacing 0;
+
+      h2 {
+        position: absolute;
+        left: 50%;
+        transform: translate(-50%);
+        color: $alpha;
+        font-size: $mediumSpacing;
+        font-weight: 700;
+      }
+
+      .icon-close-cart {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 45px;
+        height: 45px;
+        background: $alpha;
+        color: $white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: $marginSpacing;
+        z-index: 1;
+        border-bottom-left-radius: $marginSpacing;
+        cursor: pointer;
+      }
+    }
+
+    .bottom-cart {
+      -ms-overflow-style: none; /* IE and Edge */
+      scrollbar-width: none;
+      overflow: hidden;
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+      overscroll-behavior: contain;
+      height: 100%;
+      width: 100%;
+      position: relative;
+      display: inline;
+
+      &::-webkit-scrollbar {
+        display: none;
+        width: 0;
+        background: transparent;
+      }
+
+      .empty {
+        color: $alpha;
+        font-size: $marginSpacing;
+        font-weight: 700;
+        text-align: center;
+        line-height: 30px;
+        letter-spacing: 3px;
+        position: absolute;
+        top: 40%;
+        width: 100%;
+      }
+
+      ul {
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .buyItem {
+        border-bottom: #aaa 1px solid;
+        width: 100%;
+        padding: 10px $mediumSpacing 0 $marginSpacing;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: $smallSpacing;
+
+        img {
+          width: 90px;
+        }
+
+        .namePrice {
+          color: $alpha;
+          font-size: $baseSpacing;
+          width: 80%;
+        }
+
+        .counter {
+          display: flex;
+          align-items: center;
+          justify-content: space-evenly;
+          background-color: $lightGrey;
+          border-radius: $smallSpacing;
+          font-family: "Nunito Sans", sans-serif;
+          font-size: $baseSpacing;
+          font-weight: 700;
+          // width: $xlSpacing;
+          height: $largeSpacing;
+          width: 70%;
+          letter-spacing: 2px;
+
+          span {
+            border-right: 2px solid rgba(0, 0, 0, 0.2);
+            border-left: 2px solid rgba(0, 0, 0, 0.2);
+            padding: 0 $smallSpacing;
+            pointer-events: none;
+          }
+
+          .minus,
+          .plus {
+            border: none;
+            padding: $smallSpacing;
+
+            &:hover {
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+
+    &.active-popup {
+      transform: scale(1);
+    }
+
+    .total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $veryDarkGrey;
+      font-weight: 700;
+      font-size: $marginSpacing;
+      min-width: 80%;
+      min-height: 35px;
+      margin-top: $baseSpacing;
+    }
+
+    .btn {
+      background: $alpha;
+      min-width: 80%;
+      min-height: 45px;
+      border: none;
+      outline: none;
+      border-radius: $smallSpacing;
+      font-size: $baseSpacing;
+      font-weight: 500;
+      color: $white;
+      margin: $baseSpacing 0;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  }
+}
+.products {
+  position: relative;
+  .container {
+    position: relative;
+    height: 1500px;
+
+    .product-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      // position: absolute;
+      // margin-bottom: $xlSpacing;
+
+      .card {
+        border: 1px solid $darkGrey;
+        border-radius: $smallSpacing;
+        box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
+        // margin-top: $xlSpacing;
+        height: 700px;
+        max-width: 370px;
+        padding: $smallSpacing;
+        position: relative;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        // display: none;
+
+        .productImg {
+          background-color: $lightGrey;
+          background-position: center;
+          border-radius: $smallSpacing;
+          width: 100%;
+          height: 50%;
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          img {
+            position: absolute;
+            width: 300px;
+          }
+        }
+
+        .info {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+          width: 100%;
+          height: 400px;
+          padding: $baseSpacing 0;
+          text-align: center;
+
+          h2 {
+            color: $black;
+            font-family: "Montagu Slab", serif;
+            font-weight: 500;
+            font-size: $mediumSpacing;
+          }
+          h3 {
+            color: $alpha;
+            font-family: "Nunito Sans", sans-serif;
+            font-size: $baseSpacing;
+            letter-spacing: $smallSpacing;
+          }
+          p {
+            margin: 0;
+            padding: 0 $smallSpacing;
+          }
+
+          .price {
+            font-size: $marginSpacing;
+            font-weight: 700;
+            color: $black;
+          }
+        }
+        .addToCart {
+          background-color: $alpha;
+          border: none;
+          border-radius: $smallSpacing;
+          color: $white;
+          margin-bottom: $marginSpacing;
+          @include see-product-details;
+
+          &:hover {
+            background-color: $alphahover;
+            color: $white;
+            transition: 0.5s ease;
+          }
+        }
+      }
+    }
+  }
+}
+
+footer {
+  background-color: $black;
+  height: 100vh;
+  position: relative;
+
+  .logo {
+    width: 100%;
+    height: auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    a {
+      width: 200px;
+      display: flex;
+      align-items: center;
+
+      .logo-img {
+        width: 100%;
+      }
+    }
+  }
+
+  .container {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: $baseSpacing;
+    position: relative;
+    padding: $xlSpacing $containerSpacing;
+  }
+
+  .nav-menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: $mediumSpacing;
+    text-transform: uppercase;
+  }
+
+  .nav-link {
+    transition: 0.5s ease;
+
+    &:hover {
+      color: $alpha;
+    }
+  }
+
+  .social {
+    // margin-top: $baseSpacing;
+    width: 150px;
+    display: flex;
+
+    justify-content: space-between;
+
+    .fa-brands:hover {
+      transition: 1s ease;
+      color: $alpha;
+    }
+  }
+}

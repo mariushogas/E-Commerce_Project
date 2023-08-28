@@ -4,7 +4,7 @@
 @import "base";
 @import "mixins";
 
-@media screen and (min-width: 1201px) and (max-width: 1920px) {
+@media screen and (min-width: 1366px) and (max-width: 1920px) {
   body {
     overflow-y: scroll;
   }
@@ -38,11 +38,9 @@
         width: 90%;
 
         .nav-item {
-          // float: left;
-          overflow: hidden;
           height: 100%;
-          display: flex;
-          align-items: center;
+          font-size: $baseSpacing;
+          margin: 0;
         }
 
         .dropdown-content {
@@ -88,6 +86,7 @@
       display: flex;
       justify-content: flex-start;
       align-items: center;
+      padding-left: 0;
 
       a {
         width: 250px;
@@ -117,6 +116,9 @@
       .cart {
         display: flex;
         align-items: center;
+        .quantity {
+          top: 10px;
+        }
       }
     }
 
@@ -286,9 +288,7 @@
         }
       }
 
-      h3 {
-        font-size: $mediumSpacing;
-      }
+      h3,
       h4 {
         color: $darkGrey;
         font-size: 20px;
@@ -521,7 +521,7 @@
     .container {
       width: 400px;
       height: 450px;
-      left: 7%;
+      left: 8%;
       top: 0%;
       display: flex;
       align-items: flex-start;
@@ -553,7 +553,7 @@
     img {
       position: absolute;
       left: 10%;
-      width: 400px;
+      width: 500px;
     }
 
     .container {

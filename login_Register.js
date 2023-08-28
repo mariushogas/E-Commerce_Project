@@ -120,7 +120,7 @@ registerBtn.addEventListener("click", (e) => {
 });
 
 logInBtn.addEventListener("click", (e) => {
-  // e.preventDefault();
+  e.preventDefault();
 
   const email = document.getElementById("emailLogin").value;
   const password = document.getElementById("passwordLogin").value;
@@ -145,7 +145,6 @@ logInBtn.addEventListener("click", (e) => {
 
     btnPopup.addEventListener("mouseover", () => {
       helloToUser.classList.add("active-hello");
-      // const activeHello = document.querySelector(".hello");
       const name = localStorage.getItem("name");
       helloMessage.innerHTML =
         "Hello" + " " + name + " ! <br> You are logged in !";
@@ -161,13 +160,26 @@ logInBtn.addEventListener("click", (e) => {
       helloToUser.classList.remove("active-hello");
     });
 
+    btnPopup.addEventListener("click", () => {
+      loginRegisterForm.classList.remove("active-popup");
+    });
+
     // //redirect to profile page
     // window.location.href = "index.html";
   } else {
     logInError.classList.add("active-error");
-    const activetext = document.querySelector(".active-error");
-    activetext.innerHTML = "Incorrect email or password !";
+    const activeText = document.querySelector(".active-error");
+    activeText.innerHTML = "Incorrect email or password !";
   }
+});
+
+const resetBtn = document.getElementById("resetLoginBtn");
+const activeText = document.querySelector(".active-error");
+const logInError = document.querySelector(".loginError");
+
+resetBtn.addEventListener("click", () => {
+  logInError.classList.remove("active-error");
+  logInError.innerHTML = "  ";
 });
 
 // Eye-Slash Toggle

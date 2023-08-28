@@ -4,23 +4,6 @@ if (!productListStringScript) {
 }
 const productListScript = JSON.parse(productListStringScript);
 
-const hamburger = document.querySelector(".hamburger");
-const navMenu = document.querySelector(".nav-menu");
-
-document.addEventListener("DOMContentLoaded", () => {
-  hamburger.addEventListener("click", () => {
-    hamburger.classList.toggle("active");
-    navMenu.classList.toggle("active");
-  });
-
-  document.querySelectorAll(".nav-link").forEach((n) =>
-    n.addEventListener("click", () => {
-      hamburger.classList.remove("active");
-      navMenu.classList.remove("active");
-    })
-  );
-});
-
 document.addEventListener("DOMContentLoaded", () => {
   const plus = document.querySelector(".plus");
   const minus = document.querySelector(".minus");
@@ -38,31 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 });
-
-// Login & Register Form
-
-// const loginRegisterForm = document.querySelector(".loginRegisterForm");
-// const loginLink = document.querySelector(".login-link");
-// const registerLink = document.querySelector(".register-link");
-// const btnPopup = document.querySelector(".btnLogin-popup");
-// const iconClose = document.querySelector(".icon-close");
-
-// registerLink.addEventListener("click", () => {
-//   loginRegisterForm.classList.add("active");
-// });
-// loginLink.addEventListener("click", () => {
-//   loginRegisterForm.classList.remove("active");
-// });
-
-// btnPopup.addEventListener("click", () => {
-//   loginRegisterForm.classList.add("active-popup");
-// });
-
-// iconClose.addEventListener("click", () => {
-//   loginRegisterForm.classList.remove("active-popup");
-// });
-
-// Hero "See Product" Buttons & "Shop" Buttons
 
 document.addEventListener("DOMContentLoaded", (ev) => {
   const bodies = document.getElementById("bodies");
@@ -101,6 +59,42 @@ document.addEventListener("DOMContentLoaded", (ev) => {
   });
 });
 
+const shopBtn = document.querySelector(".shop");
+shopBtn.addEventListener("click", (e) => {
+  if (product.category === "body") {
+    window.location.href = "/bodyCategory.html";
+  } else if (product.category === "lens") {
+    window.location.href = "/lensCategory.html";
+  } else {
+    window.location.href = "/flashCategory.html";
+  }
+});
+
+// Login & Register Form
+
+// const loginRegisterForm = document.querySelector(".loginRegisterForm");
+// const loginLink = document.querySelector(".login-link");
+// const registerLink = document.querySelector(".register-link");
+// const btnPopup = document.querySelector(".btnLogin-popup");
+// const iconClose = document.querySelector(".icon-close");
+
+// registerLink.addEventListener("click", () => {
+//   loginRegisterForm.classList.add("active");
+// });
+// loginLink.addEventListener("click", () => {
+//   loginRegisterForm.classList.remove("active");
+// });
+
+// btnPopup.addEventListener("click", () => {
+//   loginRegisterForm.classList.add("active-popup");
+// });
+
+// iconClose.addEventListener("click", () => {
+//   loginRegisterForm.classList.remove("active-popup");
+// });
+
+// Hero "See Product" Buttons & "Shop" Buttons
+
 // document.addEventListener("DOMContentLoaded", (ev) => {
 //   const alpha9 = document.getElementById("alpha9");
 //   alpha9.addEventListener("click", function (e) {
@@ -138,21 +132,6 @@ document.addEventListener("DOMContentLoaded", (ev) => {
 //   });
 // });
 
-const shopBtn = document.querySelector(".shop");
-shopBtn.addEventListener("click", (e) => {
-  if (product.category === "body") {
-    window.location.href = "/bodyCategory.html";
-  } else if (product.category === "lens") {
-    window.location.href = "/lensCategory.html";
-  } else {
-    window.location.href = "/flashCategory.html";
-  }
-});
-
-const checkOut = document.querySelector(".checkout");
-checkOut.addEventListener("click", () => {
-  window.location.href = "/checkout.html";
-});
 // Generate List
 
 // const listLength = 6;

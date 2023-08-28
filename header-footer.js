@@ -2,25 +2,24 @@ class MyHeader extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `
     <header>
-    <div class="loginRegisterForm">
+    <div class="loginRegisterForm transform">
       <span class="icon-close">
         <div class="x"><i class="fa-solid fa-xmark"></i></div>
       </span>
 
       <div class="form-box login">
-        <h2>Login</h2>
-        <div class="loginError"></div>
-        <div class="btnReset"></div>
         <form class="form" action="#">
+          <h2>Login</h2>
+          <div class="loginError"></div>
           <div class="input-box">
             <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-            <input id="emailLogin" name="emailLogin" type="text">
+            <input id="emailLogin" name="emailLogin" type="text" required>
             <label for="emailLogin">Email</label>
           </div>
           <div class="input-box">
             <span class="icon eyeSlash toggleLog"><i class="fa-solid fa-eye-slash"></i> </span>
             <span class="icon"><i class="fa-solid fa-lock"></i></span>
-            <input id="passwordLogin" name="passwordLogin" type="password">
+            <input id="passwordLogin" name="passwordLogin" type="password" required>
             <label for="passwordLogin">Password</label>
           </div>
           <div class="remember-forgot">
@@ -40,8 +39,8 @@ class MyHeader extends HTMLElement {
       </div>
 
       <div class="form-box register">
-        <h2>Registration</h2>
         <form id="form" action="#">
+          <h2>Registration</h2>
           <div class="input-box ">
             <span class="icon"><i class="fa-solid fa-user"></i></span>
             <input id="username" name="username" type="text">
@@ -141,12 +140,14 @@ class MyHeader extends HTMLElement {
     </div>
 
   
-    <div class="productsInCart">
+    <div class="productsInCart transform"  id="refresh">
       <div class="top-cart">
         <span class="icon-close-cart">
           <div class="x"><i class="fa-solid fa-xmark"></i></div>
         </span>
         <h2>Cart</h2>
+        <button type="submit" class="removeAllBtn">Remove <br> All</button>
+        <h4></h4>
       </div>
       <div class="bottom-cart">
         <ul id="buyItems">
@@ -160,7 +161,7 @@ class MyHeader extends HTMLElement {
       <button class="btn checkout hidden">Checkout</button>
     </div>
 
-    <div class="helloUser">
+    <div class="helloUser popupMessage">
       <p></p>
       <button class="btn">Logout</button>
     </div>
@@ -215,6 +216,9 @@ class MyFooter extends HTMLElement {
           </a></li>
       </ul>
 
+      <div class = "toTopBtn">
+        <i class="fa-solid fa-circle-up fa-xl" style="color: #ffffff;"></i>
+      </div>
 
     </div>
   </footer> `;
@@ -222,3 +226,29 @@ class MyFooter extends HTMLElement {
 }
 
 customElements.define("my-footer", MyFooter);
+
+const hamburger = document.querySelector(".hamburger");
+const navMenu = document.querySelector(".nav-menu");
+
+document.addEventListener("DOMContentLoaded", () => {
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+
+  document.querySelectorAll(".nav-link").forEach((n) =>
+    n.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    })
+  );
+});
+
+const scrollToTop = document.querySelector(".toTopBtn");
+
+scrollToTop.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+});

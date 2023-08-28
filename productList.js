@@ -2,6 +2,7 @@ const productList = [
   {
     id: "item-0",
     category: "body",
+    number: "1",
     title: "Sony a9 II",
     shortDescription: `The α9 II offers advances that answer the demands of professional workflows, including sophisticated
     operability and network connectivity for enhanced support in the field, rugged go-anywhere reliability and
@@ -24,8 +25,7 @@ const productList = [
     features: `Sony Alpha 9 II groundbreaking full-frame Exmor RSTM CMOS sensor and BIONZ XTM processor team up for 20fps continuous
     shooting with AF/AE tracking. Stunning high-speed performance and ample buffer let you capture the decisive
     moment.Electronic shutter speeds up to 1/32000 sec 14 far surpass mechanical shutters for a new imaging
-    expression.
-    The 24.2-megapixel 1 full-frame high-speed stacked image
+    expression. The 24.2-megapixel 1 full-frame high-speed stacked image
     sensor stores data in integral memory for lightning-fast readout. The CMOS sensor and enhanced BIONZ X
     image-processing engine together bring you true digital freedom.
     [Stacked back-illuminated structure with integral memory]
@@ -62,6 +62,7 @@ const productList = [
   {
     id: "item-1",
     category: "body",
+    number: "2",
     title: "Sony a7R V",
     shortDescription: `The α7R V is equipped with an AI processing unit specifically dedicated to interpreting significant amounts
     of data to enable more accurate recognition of subjects and recognition of a wider range of subject types.`,
@@ -119,6 +120,7 @@ const productList = [
   {
     id: "item-2",
     category: "body",
+    number: "3",
     title: "Sony aFX III",
     shortDescription: `Sony's FX3 Cinema Line camera brings the visions of passionate content creators to life. Cinematic
     expression is matched with reliable performance and streamlined operation to serve the needs of today's
@@ -177,6 +179,7 @@ const productList = [
   {
     id: "item-3",
     category: "lens",
+    number: "1",
     title: "G-Master",
     shortDescription: `At the 12-mm end of its range, this 12–24-mm constant F2.8 zoom lens offers an ultra-wide angle of
     view.Sony G Master image deliver quality in a lightweight lens that also features fast, precise autofocus,

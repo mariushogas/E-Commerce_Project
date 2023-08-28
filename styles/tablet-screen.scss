@@ -4,18 +4,64 @@
 @import "base";
 @import "mixins";
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (min-width: 768px) and (max-width: 1366px) {
   .container {
     padding: $sectionSpacing $largeSpacing 0;
   }
 
   header {
     padding: 0 $largeSpacing;
-    // position: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+    nav {
+      .nav-menu {
+        .nav-item {
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          margin: 50px;
+          font-size: 20px;
+        }
+
+        .dropdown-content {
+          display: none;
+        }
+      }
+    }
 
     .loginRegisterForm {
       left: 25%;
       // transform: translateX(-50%);
+    }
+
+    .logIn-Cart {
+      display: flex;
+      width: auto;
+      height: 100%;
+      gap: $marginSpacing;
+
+      .btnLogin-popup {
+        color: $white;
+        margin: 0;
+        height: 100%;
+
+        &:hover {
+          color: $alpha;
+          cursor: pointer;
+          transition: 0.5s ease;
+        }
+      }
+      .cart {
+        display: flex;
+        align-items: center;
+
+        .quantity {
+          top: 25px;
+        }
+      }
     }
 
     .bar {
@@ -47,34 +93,76 @@
       margin: $mediumSpacing $marginSpacing;
     }
 
-    .hello {
+    .helloUser {
+      border: solid 2px $darkGrey;
+      border-radius: $smallSpacing;
+      background-color: $black;
       position: absolute;
-      bottom: 35px;
-      right: 120px;
+      top: 60px;
+      right: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: $white;
-      font-size: 12px;
-      max-width: 40px;
-      text-align: center;
-      margin-right: $smallSpacing;
+      font-size: $mediumSpacing;
+      height: 150px;
+      width: 250px;
+      z-index: 2225;
+      transition: all 0.3s ease-out;
+      transform: scale(0);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      p {
+        font-size: $marginSpacing;
+        color: $white;
+      }
+
+      button {
+        background-color: $alpha;
+        border: none;
+        outline: none;
+        border-radius: $smallSpacing;
+        color: $white;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        width: $xxlSpacing;
+        height: 40px;
+        width: 120px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        // text-transform: uppercase;
+
+        &:hover {
+          background-color: $alphahover;
+          color: $white;
+          transition: 0.5s ease;
+        }
+      }
+
+      &.active-hello {
+        transform: scale(1);
+      }
     }
   }
 
   // First Page Hero
   .hero {
     background-image: url("../images/tablets-img/bg-image.png");
+    // background-position: center;
     .slogan-section {
       height: 400px;
       width: 700px;
       h1 {
         font-size: 90px;
       }
-      h3 {
-        font-size: $mediumSpacing;
-      }
-      p {
-        width: 500px;
-        font-size: $marginSpacing + $smallSpacing;
-        line-height: 1.5;
+      h3,
+      h4 {
+        color: $darkGrey;
+        font-size: 20px;
+        letter-spacing: 1px;
       }
     }
   }

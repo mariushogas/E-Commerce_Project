@@ -11,6 +11,12 @@ const iconCloseCart = document.querySelector(".icon-close-cart");
 btnCartPopup.addEventListener("click", () => {
   productsCart.classList.add("active-popup");
 });
+// btnCartPopup.addEventListener("mouseover", () => {
+//   productsCart.classList.add("active-popup");
+// });
+// btnCartPopup.addEventListener("mouseout", () => {
+//   productsCart.classList.remove("active-popup");
+// });
 
 iconCloseCart.addEventListener("click", () => {
   productsCart.classList.remove("active-popup");
@@ -51,15 +57,14 @@ const checkoutSumPrice = document.querySelector(".grandTotal .sum-prices");
 const shipping = document.querySelector(".shipping-prices");
 const vatCheckout = document.querySelector(".vat-inlcuded");
 const grandTotal = document.querySelector(".grand-total-number");
+const removeAll = document.querySelector(".removeAllBtn");
+
 let quantity = document.querySelector(".quantity");
 
 // 1
 document.querySelectorAll(".addToCart").forEach((item) => {
   item.addEventListener("click", (e) => {
-    // console.log("You clicked me");
-
     const btnIdProduct = e.target.id;
-    // console.log(btnIdProduct);
 
     for (let i = 0; i < productListShop.length; i++) {
       const productCart = productListShop[i];
@@ -135,10 +140,22 @@ const updateShoppingCartHTML = function () {
     document.querySelector(".checkout").classList.add("hidden");
     document.querySelector(".total").classList.add("hidden");
     parentElement.innerHTML =
-      ' <h3 class="empty">Your shopping cart is <br> empty</h3>';
-    // cartSumPrice.innerHTML = "";
+      ' <h3 class="empty">Your shopping cart is empty</h3>';
+    removeAll.classList.add("hide");
   }
 };
+
+removeAll.addEventListener("click", () => {
+  localStorage.removeItem("ShoppingCart");
+  removeAll.classList.add("hide");
+
+  const content = document.getElementById("refresh").innerHTML;
+  console.log(content);
+  document.getElementById("refresh").innerHTML = content;
+
+  // parent.document.getElementById(".myFrame").reload();
+  window.location.reload();
+});
 
 // 4
 const countTheSumPrice = function () {

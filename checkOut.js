@@ -10,3 +10,8 @@
 //   thankYouPopUp.classList.remove("active-popup");
 //   window.location.href = "/index.html";
 // });
+
+const checkOut = document.querySelector(".checkout");
+checkOut.addEventListener("click", () => {
+  window.location.href = "/checkout.html";
+});

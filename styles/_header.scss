@@ -4,11 +4,11 @@
 @import "base";
 @import "mixins";
 
-header {
-  background-color: $black;
+@mixin header {
+  background-color: red;
   border-bottom: 2px solid rgba(131, 131, 131, 0.2);
   border-width: 2px 20px;
-  width: 100%;
+  width: 100vw;
   height: $sectionSpacing;
   display: flex;
   justify-content: space-between;
@@ -309,38 +309,45 @@ header {
     text-align: center;
     transition: 0.5s;
     z-index: 10;
-  }
-  .nav-link {
-    transition: 0.5s ease;
-    letter-spacing: 0.5px;
-    position: relative;
-    padding: 0 10px;
-    color: $grey;
-    padding: 0;
 
-    &::after {
-      content: " ";
-      background-color: $alpha;
-      position: absolute;
-      height: 3px;
-      width: 100%;
-      bottom: -5px;
-      left: 0;
-      transition: 0.3s;
-      transform: scale(0, 1);
-    }
+    .nav-item {
+      margin: 30px 0;
 
-    &:hover {
-      cursor: pointer;
-      color: $white;
+      .nav-link {
+        transition: 0.5s ease;
+        letter-spacing: 0.8px;
+        position: relative;
+        // padding: 0 10px;
+        color: $grey;
+        padding: 0;
 
-      &::after {
-        // width: 100%;
-        transform: scale(1, 1);
+        &::after {
+          content: " ";
+          background-color: $alpha;
+          position: absolute;
+          height: 3px;
+          width: 100%;
+          bottom: -5px;
+          left: 0;
+          transition: 0.3s;
+          transform: scale(0, 1);
+        }
+
+        &:hover {
+          cursor: pointer;
+          color: $white;
+
+          &::after {
+            // width: 100%;
+            transform: scale(1, 1);
+          }
+        }
+      }
+      .dropdown-content {
+        display: none;
       }
     }
   }
-
   .nav-menu.active {
     left: 0;
   }
@@ -364,56 +371,106 @@ header {
     }
   }
 
-  .hello {
+  .helloUser {
+    border: solid 2px $darkGrey;
+    border-radius: $smallSpacing;
+    background-color: $black;
     position: absolute;
-    bottom: 0;
-    right: 10px;
+    top: 60px;
+    right: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: $white;
+    font-size: $mediumSpacing;
+    height: 150px;
+    width: 250px;
+    z-index: 2225;
+    transition: all 0.3s ease-out;
+    transform: scale(0);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 
-    font-size: 12px;
-    // max-width: 40px;
-    text-align: center;
-  }
-
-  .btnLogin-popup {
-    background: transparent;
-    border: none;
-    color: $white;
-    font-size: $baseSpacing;
-    margin: $mediumSpacing $smallSpacing;
-
-    &:hover {
-      color: $alpha;
-      cursor: pointer;
-      transition: 0.5s ease;
-    }
-  }
-
-  .cart {
-    background-color: transparent;
-    border: none;
-    color: $white;
-    padding: 0;
-    position: relative;
-
-    &:hover {
-      color: $alpha;
-      cursor: pointer;
-      transition: 0.5s ease;
-    }
-
-    .quantity {
-      background-color: $alpha;
-      border-radius: 50%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    p {
+      font-size: $marginSpacing;
       color: $white;
-      position: absolute;
-      top: 12px;
-      left: 40%;
-      padding: 8px 5px;
-      font-size: $smallSpacing;
+    }
+
+    button {
+      background-color: $alpha;
+      border: none;
+      outline: none;
+      border-radius: $smallSpacing;
+      color: $white;
+      font-family: "Nunito Sans", sans-serif;
+      font-size: 14px;
+      font-weight: 500;
+      width: $xxlSpacing;
+      height: 40px;
+      width: 120px;
+      letter-spacing: 2px;
+      cursor: pointer;
+      // text-transform: uppercase;
+
+      &:hover {
+        background-color: $alphahover;
+        color: $white;
+        transition: 0.5s ease;
+      }
+    }
+
+    &.active-hello {
+      transform: scale(1);
+    }
+  }
+
+  .logIn-Cart {
+    display: flex;
+    width: auto;
+    height: 100%;
+    gap: 12px;
+
+    .btnLogin-popup {
+      background: transparent;
+      border: none;
+      color: $white;
+      font-size: 13px;
+
+      &:hover {
+        color: $alpha;
+        cursor: pointer;
+        transition: 0.5s ease;
+      }
+    }
+
+    .cart {
+      background-color: transparent;
+      border: none;
+      color: $white;
+      padding: 0;
+      position: relative;
+      font-size: 13px;
+
+      &:hover {
+        color: $alpha;
+        cursor: pointer;
+        transition: 0.5s ease;
+      }
+
+      .quantity {
+        background-color: $alpha;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: $white;
+        position: absolute;
+        top: 25px;
+        left: 40%;
+        padding: 8px 5px;
+        font-size: $smallSpacing;
+      }
     }
   }
 
@@ -599,279 +656,5 @@ header {
     .hidden {
       display: none;
     }
-  }
-}
-
-.container {
-  margin-top: $baseSpacing;
-  // height: 700px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  // align-items: flex-start;
-  row-gap: $marginSpacing;
-  width: 100%;
-
-  .btnGoBack {
-    a {
-      color: $black;
-      font-size: $baseSpacing;
-      cursor: pointer;
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-    }
-  }
-
-  .checkOut {
-    margin: 0 $containerSpacing;
-  }
-  // .payment-method {
-  //   display: flex;
-  // }
-
-  h2 {
-    color: $black;
-    font-weight: 800;
-    font-size: $mediumSpacing;
-    margin-top: $mediumSpacing;
-  }
-
-  h4 {
-    color: $alpha;
-    text-align: left;
-    margin-top: $mediumSpacing;
-  }
-
-  .form-group {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    text-align: left;
-    width: 100%;
-    margin-top: $marginSpacing;
-    row-gap: $smallSpacing;
-
-    label {
-      font-weight: 800;
-    }
-
-    input {
-      border: 2px solid $lightGrey;
-      border-radius: $smallSpacing;
-      padding: $marginSpacing;
-      width: 100%;
-      font-size: $baseSpacing;
-    }
-  }
-
-  .payment-method {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    row-gap: $baseSpacing;
-    margin-top: $marginSpacing;
-
-    .form-label {
-      font-weight: 800;
-      text-align: left;
-    }
-
-    .payment-group {
-      display: flex;
-      justify-content: flex-start;
-      align-items: center;
-      column-gap: $baseSpacing;
-      border: 2px solid $lightGrey;
-      border-radius: $smallSpacing;
-      padding: $marginSpacing;
-      width: 100%;
-      font-size: $baseSpacing;
-
-      label {
-        font-weight: 800;
-        text-align: center;
-      }
-
-      input[type="radio"],
-      label {
-        accent-color: $alpha;
-
-        &:hover {
-          cursor: pointer;
-        }
-      }
-    }
-
-    input[type="radio"]:checked {
-      .payment-group {
-        border: 3px solid $alpha;
-      }
-    }
-  }
-
-  .summary {
-    display: flex;
-    flex-direction: column;
-    margin: 0 $containerSpacing;
-    margin-top: $xlSpacing;
-
-    h3 {
-      font-size: $marginSpacing;
-      text-align: left;
-      margin-bottom: $mediumSpacing;
-    }
-
-    .buyItem {
-      border-bottom: #aaa 1px solid;
-      width: 100%;
-      padding: 10px 0;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      column-gap: $smallSpacing;
-
-      img {
-        width: 90px;
-        background-color: $lightGrey;
-        border-radius: $smallSpacing;
-      }
-
-      .namePrice {
-        // color: $alpha;
-        font-size: $baseSpacing;
-        width: 80%;
-
-        h4 {
-          margin: 0;
-        }
-
-        .name {
-          color: $black;
-        }
-        .price {
-          color: $darkGrey;
-        }
-      }
-
-      .counter {
-        color: $darkGrey;
-        font-weight: 700;
-      }
-    }
-
-    .grandTotal {
-      margin-top: $mediumSpacing;
-      display: flex;
-      flex-direction: column;
-      row-gap: $baseSpacing;
-      text-transform: uppercase;
-
-      .grand {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .prices {
-        color: $black;
-        font-weight: 700;
-      }
-
-      .grand-total {
-        margin-top: $marginSpacing;
-        .grand-total-number {
-          color: $alpha;
-          font-weight: 700;
-        }
-      }
-    }
-  }
-}
-.btnContinuePay {
-  background-color: $alpha;
-  border: none;
-  border-radius: $smallSpacing;
-  color: $white;
-  @include see-product-details;
-  width: 100%;
-  height: 55px;
-  margin: $mediumSpacing 0;
-
-  &:hover {
-    background-color: $alphahover;
-    color: $white;
-    transition: 0.5s ease;
-  }
-}
-
-footer {
-  background-color: $black;
-  height: 100vh;
-  position: relative;
-
-  .logo {
-    width: 100%;
-    height: auto;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    a {
-      width: 200px;
-      display: flex;
-      align-items: center;
-
-      .logo-img {
-        width: 100%;
-      }
-    }
-  }
-
-  .container {
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    gap: $baseSpacing;
-    position: relative;
-    padding: $largeSpacing $containerSpacing;
-  }
-
-  .nav-menu {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    gap: $mediumSpacing;
-    text-transform: uppercase;
-  }
-
-  .nav-link {
-    transition: 0.5s ease;
-
-    &:hover {
-      color: $alpha;
-    }
-  }
-
-  .social {
-    width: 150px;
-    display: flex;
-    justify-content: space-between;
-
-    .fa-brands:hover {
-      transition: 1s ease;
-      color: $alpha;
-    }
-  }
-
-  .toTopBtn {
-    background-color: $black;
-    display: flex;
-    align-self: flex-end;
   }
 }

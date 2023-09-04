@@ -4,18 +4,77 @@
 @import "base";
 @import "mixins";
 
-@media screen and (min-width: 768px) and (max-width: 1200px) {
+@media screen and (min-width: 768px) and (max-width: 1366px) {
   .container {
     padding: $sectionSpacing $largeSpacing 0;
   }
 
   header {
     padding: 0 $largeSpacing;
-    // position: fixed;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+
+    nav {
+      .nav-menu {
+        .nav-item {
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          margin: 50px;
+          font-size: 20px;
+        }
+
+        .dropdown-content {
+          display: none;
+        }
+      }
+    }
 
     .loginRegisterForm {
-      left: 25%;
-      // transform: translateX(-50%);
+      top: 100%;
+      left: 65%;
+      height: 600px;
+      width: 400px;
+      max-width: 600px;
+
+      .form-box {
+        form {
+          padding: 60px 40px;
+        }
+      }
+
+      &.active {
+        height: 650px;
+      }
+    }
+
+    .logIn-Cart {
+      display: flex;
+      width: auto;
+      height: 100%;
+      gap: $marginSpacing;
+
+      .btnLogin-popup {
+        color: $white;
+        margin: 0;
+        height: 100%;
+
+        &:hover {
+          color: $alpha;
+          cursor: pointer;
+          transition: 0.5s ease;
+        }
+      }
+      .cart {
+        display: flex;
+        align-items: center;
+
+        .quantity {
+          top: 25px;
+        }
+      }
     }
 
     .bar {
@@ -23,7 +82,11 @@
     }
 
     .productsInCart {
-      left: 25%;
+      top: 100px;
+      left: 70%;
+      height: 600px;
+      width: 400px;
+      max-width: 600px;
     }
 
     .logo {
@@ -42,49 +105,222 @@
         }
       }
     }
-
-    .btnLogin-popup {
-      margin: $mediumSpacing $marginSpacing;
+    .logIn-Cart {
+      .btnLogin-popup {
+        // margin: $mediumSpacing $marginSpacing;
+        font-size: 16px;
+      }
+      .cart {
+        font-size: 16px;
+      }
     }
-
-    .hello {
+    .helloUser {
+      border: solid 2px $darkGrey;
+      border-radius: $smallSpacing;
+      background-color: $black;
       position: absolute;
-      bottom: 35px;
-      right: 120px;
+      top: 60px;
+      right: 100px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       color: $white;
-      font-size: 12px;
-      max-width: 40px;
-      text-align: center;
-      margin-right: $smallSpacing;
+      font-size: $mediumSpacing;
+      height: 150px;
+      width: 250px;
+      z-index: 2225;
+      transition: all 0.3s ease-out;
+      transform: scale(0);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      p {
+        font-size: $marginSpacing;
+        color: $white;
+      }
+
+      button {
+        background-color: $alpha;
+        border: none;
+        outline: none;
+        border-radius: $smallSpacing;
+        color: $white;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        width: $xxlSpacing;
+        height: 40px;
+        width: 120px;
+        letter-spacing: 2px;
+        cursor: pointer;
+        // text-transform: uppercase;
+
+        &:hover {
+          background-color: $alphahover;
+          color: $white;
+          transition: 0.5s ease;
+        }
+      }
+
+      &.active-hello {
+        transform: scale(1);
+      }
     }
   }
 
   // First Page Hero
   .hero {
     background-image: url("../images/tablets-img/bg-image.png");
+    height: 100vh;
+    // background-position: center;
+
     .slogan-section {
-      height: 400px;
+      height: 500px;
       width: 700px;
-      h1 {
-        font-size: 90px;
+      top: 40%;
+
+      .title {
+        h1 {
+          font-size: 170px;
+        }
+        h2 {
+          font-size: 70px;
+          margin-top: -30px;
+          // margin-bottom: -35px;
+        }
       }
-      h3 {
-        font-size: $mediumSpacing;
+
+      h3,
+      h4 {
+        color: $darkGrey;
+        font-size: 35px;
+        letter-spacing: 1px;
       }
-      p {
-        width: 500px;
-        font-size: $marginSpacing + $smallSpacing;
-        line-height: 1.5;
+    }
+
+    .see-product {
+      width: 220px;
+      height: 60px;
+      font-size: 20px;
+    }
+  }
+
+  .carousel {
+    height: 700px;
+    width: calc(100% - 2 * $largeSpacing);
+    .carouselItemVisible {
+      .slide1 {
+        background-image: url(/images/carousel-img-tablet/carousel-img1.jpg);
+        height: 700px;
+        .infoSlide1 {
+          height: 120px;
+          width: 100%;
+          top: 20px;
+          h2 {
+            font-size: 60px;
+          }
+          h4 {
+            font-size: 25px;
+          }
+          button {
+            top: 570px;
+            width: 220px;
+            height: 60px;
+            font-size: 20px;
+          }
+        }
+      }
+      .slide2 {
+        background-image: url(/images/carousel-img-tablet/carousel-img2.jpg);
+        height: 700px;
+
+        .infoSlide2 {
+          height: 250px;
+          width: 100%;
+
+          p {
+            font-size: 22px;
+            width: 100%;
+            height: 120px;
+            line-height: 35px;
+            padding: 0 20px;
+          }
+          button {
+            top: 570px;
+            width: 220px;
+            height: 60px;
+            font-size: 20px;
+            margin-bottom: 25px;
+          }
+        }
+      }
+      .slide3 {
+        background-image: url(/images/carousel-img-tablet/carousel-img3.jpg);
+        height: 700px;
+
+        .infoSlide3 {
+          height: 330px;
+          width: 350px;
+          left: 50px;
+          top: 55%;
+
+          h2 {
+            font-size: 50px;
+            width: 350px;
+          }
+          p {
+            font-size: 25px;
+            width: 100%;
+            height: 120px;
+            line-height: 30px;
+            padding: 0 20px;
+          }
+          button {
+            top: 570px;
+            width: 220px;
+            height: 60px;
+            font-size: 20px;
+          }
+        }
+      }
+      .slide4 {
+        background-image: url(/images/carousel-img-tablet/carousel-img4.jpg);
+        height: 700px;
+
+        .infoSlide4 {
+          height: 630px;
+          width: 100%;
+          padding-top: 10px;
+          top: 20px;
+          h2 {
+            font-size: 60px;
+          }
+          button {
+            top: 570px;
+            width: 220px;
+            height: 60px;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+    .carousel-action {
+      button {
+        i {
+          font-size: 50px;
+        }
       }
     }
   }
+
   .product-GM-lens {
     background-size: 300px 300px;
     width: calc(100% - 2 * $largeSpacing);
 
     .extraBigCircle {
       position: absolute;
-      top: -25%;
+      top: -27%;
       width: 750px;
       height: 750px;
       border: 1px solid white;
@@ -118,6 +354,12 @@
         flex-wrap: wrap;
         width: 60%;
       }
+
+      .see-product {
+        width: 220px;
+        height: 60px;
+        font-size: 20px;
+      }
     }
   }
   .product-SSM-lens {
@@ -146,6 +388,12 @@
       h2 {
         font-size: $largeSpacing;
       }
+
+      .see-product {
+        width: 220px;
+        height: 60px;
+        font-size: 20px;
+      }
     }
   }
   .product-flash {
@@ -162,6 +410,11 @@
       h2 {
         font-size: $largeSpacing;
       }
+      .see-product {
+        width: 220px;
+        height: 60px;
+        font-size: 20px;
+      }
     }
 
     .flash-img {
@@ -172,36 +425,49 @@
   }
 
   // Bodies,Lenses,Flash Category
+
   .category {
-    height: $xxxlSpacing;
-    width: 100%;
+    height: 250px;
+
     h2 {
       font-size: $mediumSpacing;
     }
   }
 
-  .card {
-    // margin-top: $sectionSpacing;
-    height: 700px;
-    width: 100%;
-    margin-bottom: $sectionSpacing;
-    margin-top: 0;
+  .camera-bodies,
+  .flash,
+  .lenses {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    .container {
+      padding: 0;
+      width: calc(100% - 2 * $largeSpacing);
 
-    .productImg {
-      width: 100%;
-      height: 400px;
+      .card {
+        // margin-top: $sectionSpacing;
+        height: 700px;
+        width: 100%;
+        margin-bottom: $sectionSpacing;
+        margin-top: 0;
 
-      img {
-        width: 400px;
-      }
-    }
+        .productImg {
+          width: 100%;
+          height: 400px;
 
-    .info {
-      height: 250px;
-      justify-content: space-evenly;
+          img {
+            width: 400px;
+          }
+        }
 
-      h2 {
-        font-size: $largeSpacing;
+        .info {
+          height: 250px;
+          justify-content: space-evenly;
+
+          h2 {
+            font-size: $largeSpacing;
+          }
+        }
       }
     }
   }
@@ -493,7 +759,7 @@
       .social {
         position: absolute;
         right: 0;
-        bottom: $xlSpacing;
+        bottom: 110px;
       }
     }
   }

@@ -22,8 +22,6 @@
   <section class="products">
 
     <div class="container main-products">
-
-
       <!-- <div class="filters">
           Filters
           <div>
@@ -33,17 +31,31 @@
           </div>
         </div> -->
 
+
+      <div class="topButtons">
+        <button class="filterBtn">Filter</button>
+        <div class="sortBy">
+          <span>Sort by</span>
+          <select name="" id="select">
+            <option value="relevance">Relevance</option>
+            <option value="lowToHigh">Low to High</option>
+            <option value="highToLow">High to Low</option>
+          </select>
+        </div>
+      </div>
+
       <div class="filter-section">
         <h3>Products filter</h3>
         <div class="filter">
           <div class="categoryFilter">
-            <div class="category-btn">
+            <div class="dropDown-btn">
+              <span class="verticalLine"></span>
               <span class="btn-text">Category</span>
               <span class="arrow-down">
                 <i class="fa-solid fa-chevron-down"></i>
               </span>
             </div>
-            <ul class="category-list">
+            <ul class="list">
               <li class="item select-all">
                 <input type="checkbox" id="selectAll">
                 <label for="selectAll">Select All</label>
@@ -63,67 +75,114 @@
               </li>
             </ul>
           </div>
-
           <div class="priceFilter">
-            <div class="category-btn">
+            <div class="dropDown-btn">
+              <span class="verticalLine"></span>
               <span class="btn-text">Prices</span>
               <span class="arrow-down">
                 <i class="fa-solid fa-chevron-down"></i>
               </span>
             </div>
-            <ul class="category-list">
+            <ul class="list">
               <li class="item">
-                <input type="checkbox" id="tillTo-499">
-                <label for="tillTo-499">$0 - $499</label>
+                <input type="checkbox" id="startFrom-0">
+                <label for="tillTo-999">$0 - $999</label>
               </li>
               <li class="item">
-                <input type="checkbox" id="tillTo-999">
-                <label for="tillTo-999">$500 - $999</label>
-              </li>
-              <li class="item">
-                <input type="checkbox" id="tillTo-1999">
+                <input type="checkbox" id="startFrom-1000">
                 <label for="tillTo-1999">$1000 - $1999</label>
               </li>
               <li class="item">
-                <input type="checkbox" id="tillTo-2999">
+                <input type="checkbox" id="startFrom-2000">
                 <label for="tillTo-2999">$2000 - $2999</label>
               </li>
               <li class="item">
-                <input type="checkbox" id="tillTo-3999">
+                <input type="checkbox" id="startFrom-3000">
                 <label for="tillTo-3999">$3000 - $3999</label>
               </li>
               <li class="item">
-                <input type="checkbox" id="tillTo-4999">
+                <input type="checkbox" id="startFrom-4000">
                 <label for="tillTo-4999">$4000 - $4999</label>
               </li>
             </ul>
           </div>
-
-          <div class="categoryFilter">
-            <div class="category-btn">
-              <span class="btn-text">Color</span>
+          <div class="resolutionFilter">
+            <div class="dropDown-btn">
+              <span class="verticalLine"></span>
+              <span class="btn-text">Video<br>Resolution</span>
               <span class="arrow-down">
                 <i class="fa-solid fa-chevron-down"></i>
               </span>
             </div>
-            <ul class="category-list">
-              <li class="item select-all">
+            <ul class="list">
+              <li class="item">
                 <input type="checkbox" id="aa">
-                <label for="selectAll">Select All</label>
+                <label for="selectAll">8k</label>
               </li>
               <li class="item">
                 <input type="checkbox" id="bb">
-                <label for="cameraBodies">Camera Bodies</label>
+                <label for="cameraBodies">4k</label>
                 <span class="item-text"></span>
               </li>
               <li class="item">
                 <input type="checkbox" id="cc">
-                <label for="cameraLenses">Camera Lenses</label>
+                <label for="cameraLenses">Full HD</label>
               </li>
               <li class="item">
                 <input type="checkbox" id="dd">
-                <label for="cameraFlashes">Camera Flashes</label>
+                <label for="cameraFlashes">HD</label>
               </li>
+            </ul>
+
+          </div>
+          <div class="stabilizationFilter">
+            <div class="dropDown-btn">
+              <span class="verticalLine"></span>
+              <span class="btn-text">Image<br>Stabilization</span>
+              <span class="arrow-down">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <ul class="list">
+              <li class="item">
+                <input type="checkbox" id="aa">
+                <label for="selectAll">Yes</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="bb">
+                <label for="cameraBodies">No</label>
+                <span class="item-text"></span>
+              </li>
+            </ul>
+          </div>
+          <div class="guideNumberFilter">
+            <div class="dropDown-btn">
+              <span class="verticalLine"></span>
+              <span class="btn-text">Flash guide<br>number</span>
+              <span class="arrow-down">
+                <i class="fa-solid fa-chevron-down"></i>
+              </span>
+            </div>
+            <ul class="list">
+              <li class="item">
+                <input type="checkbox" id="aa">
+                <label for="selectAll">60</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="aa">
+                <label for="selectAll">58</label>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="bb">
+                <label for="cameraBodies">45</label>
+                <span class="item-text"></span>
+              </li>
+              <li class="item">
+                <input type="checkbox" id="bb">
+                <label for="cameraBodies">36</label>
+                <span class="item-text"></span>
+              </li>
+
             </ul>
 
           </div>
@@ -132,21 +191,18 @@
       </div>
 
       <div class="sortAndList">
-        <div class="sortBy">
-          <span>Sort by</span>
-          <select name="" id="select">
-            <option value="Relevance">Relevance</option>
-            <option value="lowToHigh">Low to High</option>
-            <option value="highToLow">High to Low</option>
-          </select>
-        </div>
 
         <div class="product-list">
           <!-- <div class="card body product-under">
-            <div class="productImg"><img src="/images/alpha9.png" alt="Alpha9 Image"></div>
+            <div class="productImg">
+              <img src="/images/alpha9.png" alt="Alpha9 Image">
+            </div>
             <div class="info">
               <h2>Sony a9 II</h2>
-              <p class="price">$ 4999 </p>
+              <div class="currencyAndPrice">
+                <span>$</span>
+                <p class="price">4999</p>
+              </div>
             </div><button class="addToCart" id="item-0">Add to cart</button>
           </div> -->
         </div>

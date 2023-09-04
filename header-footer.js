@@ -43,20 +43,20 @@ class MyHeader extends HTMLElement {
           <h2>Registration</h2>
           <div class="input-box ">
             <span class="icon"><i class="fa-solid fa-user"></i></span>
-            <input id="username" name="username" type="text">
+            <input id="username" name="username" type="text" required>
             <label for="username">Username</label>
             <div class="error"></div>
           </div>
           <div class="input-box ">
             <span class="icon"><i class="fa-solid fa-envelope"></i></span>
-            <input id="email" name="email" type="text">
+            <input id="email" name="email" type="text" required>
             <label for="email">Email</label>
             <div class="error"></div>
           </div>
           <div class="input-box">
             <span class="icon eyeSlash toggleReg"><i class="fa-solid fa-eye-slash"></i> </span>
             <span class="icon"><i class="fa-solid fa-lock"></i></span>
-            <input id="password" name="password" type="password">
+            <input id="password" name="password" type="password" required>
             <label for="password">Password</label>
             <div class="error"></div>
           </div>
@@ -193,7 +193,7 @@ class MyFooter extends HTMLElement {
         </ul>
       </nav>
 
-      <p class="paragraph">Customer-first is AlphaCamera primary policy. WE pride ourselves on our helpful, pleasant and
+      <p class="paragraph">Customer-first is AlphaCamera primary policy. We pride ourselves on our helpful, pleasant and
         knowledgeable
         staff of professional photographers. From the moment you walk onto our sales floor, one of our salespeople will
         be there to assist you with whatever question you mai have. You can be confident that one of our highly trained
@@ -227,6 +227,8 @@ class MyFooter extends HTMLElement {
 
 customElements.define("my-footer", MyFooter);
 
+// Hamburger and Menu HIDE for mobile and tablet
+
 const hamburger = document.querySelector(".hamburger");
 const navMenu = document.querySelector(".nav-menu");
 
@@ -244,6 +246,7 @@ document.addEventListener("DOMContentLoaded", () => {
   );
 });
 
+// Scroll to TOP
 const scrollToTop = document.querySelector(".toTopBtn");
 
 scrollToTop.addEventListener("click", () => {

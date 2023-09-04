@@ -837,7 +837,7 @@ footer {
     align-items: center;
     gap: $baseSpacing;
     position: relative;
-    padding: $xlSpacing $containerSpacing;
+    padding: $largeSpacing $containerSpacing;
   }
 
   .nav-menu {
@@ -859,15 +859,19 @@ footer {
   }
 
   .social {
-    // margin-top: $baseSpacing;
     width: 150px;
     display: flex;
-
     justify-content: space-between;
 
     .fa-brands:hover {
       transition: 1s ease;
       color: $alpha;
     }
+  }
+
+  .toTopBtn {
+    background-color: $black;
+    display: flex;
+    align-self: flex-end;
   }
 }

@@ -30,7 +30,20 @@
             <button id="searchButton">Search</button>
           </div>
         </div> -->
-      <button class="filterBtn">Filter</button>
+
+
+      <div class="topButtons">
+        <button class="filterBtn">Filter</button>
+        <div class="sortBy">
+          <span>Sort by</span>
+          <select name="" id="select">
+            <option value="relevance">Relevance</option>
+            <option value="lowToHigh">Low to High</option>
+            <option value="highToLow">High to Low</option>
+          </select>
+        </div>
+      </div>
+
       <div class="filter-section">
         <h3>Products filter</h3>
         <div class="filter">
@@ -178,14 +191,6 @@
       </div>
 
       <div class="sortAndList">
-        <div class="sortBy">
-          <span>Sort by</span>
-          <select name="" id="select">
-            <option value="Relevance">Relevance</option>
-            <option value="lowToHigh">Low to High</option>
-            <option value="highToLow">High to Low</option>
-          </select>
-        </div>
 
         <div class="product-list">
           <!-- <div class="card body product-under">

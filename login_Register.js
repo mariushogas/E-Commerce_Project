@@ -67,13 +67,13 @@ const validateRegisterInputs = () => {
   const emailValue = email.value.trim();
   const passwordValue = password.value.trim();
 
-  if (userNameValue === "") {
+  if (userNameValue === " ") {
     setError(username, "Username is required");
   } else {
     setSuccess(username);
   }
 
-  if (emailValue === "") {
+  if (emailValue === " ") {
     re;
     setError(email, "Email is required");
   } else if (!isValidEmail(emailValue)) {
@@ -82,7 +82,7 @@ const validateRegisterInputs = () => {
     setSuccess(email);
   }
 
-  if (passwordValue === "") {
+  if (passwordValue === " ") {
     setError(password, "Password is required");
   } else if (passwordValue.length < 4) {
     setError(password, "Password must be at least 4 character");
@@ -90,7 +90,7 @@ const validateRegisterInputs = () => {
     setSuccess(password);
   }
 };
-
+// REGISTER BUTTON
 registerBtn.addEventListener("click", (e) => {
   const username = document.getElementById("username").value;
   const email = document.getElementById("email").value;
@@ -119,6 +119,7 @@ registerBtn.addEventListener("click", (e) => {
   console.log("user add");
 });
 
+// LOGIN BUTTON
 logInBtn.addEventListener("click", (e) => {
   e.preventDefault();
 
@@ -173,13 +174,19 @@ logInBtn.addEventListener("click", (e) => {
   }
 });
 
-const resetBtn = document.getElementById("resetLoginBtn");
+const resetBtnLog = document.getElementById("resetLoginBtn");
+const resetBtnReg = document.getElementById("resetRegBtn");
 const activeText = document.querySelector(".active-error");
 const logInError = document.querySelector(".loginError");
 
-resetBtn.addEventListener("click", () => {
+resetBtnLog.addEventListener("click", () => {
   logInError.classList.remove("active-error");
   logInError.innerHTML = "  ";
+});
+resetBtnReg.addEventListener("click", () => {
+  setSuccess(username);
+  setSuccess(email);
+  setSuccess(password);
 });
 
 // Eye-Slash Toggle

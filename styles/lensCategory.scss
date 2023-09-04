@@ -704,7 +704,7 @@ header {
 
 .card {
   margin-top: $xlSpacing;
-  height: 650px;
+  height: 750px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -729,11 +729,9 @@ header {
   .info {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     align-items: center;
     width: 100%;
-    height: 45%;
-    // padding: $baseSpacing 0;
+    gap: 20px;
     text-align: center;
 
     h2 {
@@ -816,6 +814,7 @@ header {
         background-color: transparent;
         position: absolute;
         top: -30%;
+        filter: drop-shadow(-1px 24px 10px rgba(0, 0, 0, 0.7));
       }
 
       .shop {
@@ -921,7 +920,7 @@ footer {
     align-items: center;
     gap: $baseSpacing;
     position: relative;
-    padding: $xlSpacing $containerSpacing;
+    padding: $largeSpacing $containerSpacing;
   }
 
   .nav-menu {

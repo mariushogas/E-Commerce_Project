@@ -4,7 +4,7 @@ if (!productListString) {
   alert("Something went wrong, please check LocalStorage !");
 }
 
-const productList = JSON.parse(productListString);
+let productList = JSON.parse(productListString);
 // stocam in variabila "productList" obiectul convertit anterior in localStorage intr-un obiect javascript
 
 function createImg(imgUrl, alt) {
@@ -86,6 +86,8 @@ function generateList() {
   }
 }
 
+generateList();
+
 // Filter Section //
 
 const selectBtn = document.querySelectorAll(".dropDown-btn");
@@ -94,6 +96,15 @@ const allCheckbox = document.querySelectorAll(".item:not(.select-all) input");
 const btnText = document.querySelector(".btn-text");
 const selectPrice = document.querySelectorAll(".priceFilter .item input ");
 let listBoolean = [];
+
+// Filter Section hide for mobile and tablet
+
+const filterBtn = document.querySelector(".filterBtn");
+const filterSection = document.querySelector(".filter-section");
+
+filterBtn.addEventListener("click", () => {
+  filterSection.classList.toggle("active-filter");
+});
 
 // Filter Section - DropDown Btn
 selectBtn.forEach((item) => {
@@ -248,37 +259,28 @@ checkOutProducts.addEventListener("click", () => {
   window.location.href = "/checkout.html";
 });
 
-generateList();
-
 function myFunction(x) {
   if (x.matches) {
     const selectBtn = document.querySelectorAll(".dropDown-btn");
-    // const verticalLine = document.querySelector(".verticalLine");
-    // const list = document.querySelector(".list");
 
     selectBtn.forEach((item) => {
       item.addEventListener("click", () => {
-        window.onload;
-        // console.log(item.parentNode);
-        const btnSelected = item.parentNode;
-        // console.log(btnSelected);
-        const vertical = item.children[0];
-        // console.log(vertical);
-        const list = btnSelected.children[1];
-        // console.log(list);
+        // refreshPage();
 
         for (let i = 0; i < selectBtn.length; i++) {
-          console.log(selectBtn[i].parentNode);
-          console.log(btnSelected);
+          const btnSelected = item.parentNode;
+          const categorySelected = selectBtn[i];
+          const selectVerticalLine = selectBtn[i].children[0];
+          const selectList = selectBtn[i].parentNode.children[1];
 
           if (selectBtn[i].parentNode === btnSelected) {
-            vertical.style.visibility = "hidden";
-            list.style.display = "none";
-            item.style.background = "white";
+            selectVerticalLine.style.visibility = "visible";
+            selectList.style.display = "block";
+            categorySelected.style.background = "transparent";
           } else {
-            vertical.style.visibility = "visible";
-            list.style.display = "block";
-            item.style.background = "$lightGrey";
+            selectVerticalLine.style.visibility = "hidden";
+            selectList.style.display = "none";
+            categorySelected.style.background = "lightGray";
           }
         }
       });
@@ -407,7 +409,32 @@ function myFunction(x) {
   }
 }
 
+// Sort By
+
+const sortSelected = document.getElementById("select");
+// const cardList = document.querySelectorAll(".product-list .card");
+
+sortSelected.addEventListener("click", () => {
+  if (sortSelected.value === "lowToHigh") {
+    console.log("A intrat in if");
+    const lowToHigh = productList.sort((a, b) => a.price - b.price);
+    productList = lowToHigh;
+    generateList();
+  } else if (sortSelected.value === "highToLow") {
+    console.log("A intrat in ELSE IF");
+    const highToLow = productList.sort((a, b) => b.price - a.price);
+    productList = highToLow;
+    generateList();
+  }
+});
+
+function refreshPage() {
+  location.reload();
+}
+
 const x = window.matchMedia("(max-width: 1365px)");
 myFunction(x);
 // Call listener function at run time
 // x.addEventListener(myFunction);
+
+// generateList();
